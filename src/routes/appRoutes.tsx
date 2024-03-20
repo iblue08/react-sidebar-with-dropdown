@@ -1,122 +1,94 @@
-import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
-import HomePage from "../pages/home/HomePage";
+import HomePage from "../components/pages/home/HomePage";
 import { RouteType } from "./config";
-import DefaultPage from "../pages/dashboard/DefaultPage";
-import DashboardIndex from "../pages/dashboard/DashboardIndex";
-import ChangelogPage from "../pages/changelog/ChangelogPage";
-import AnalyticsPage from "../pages/dashboard/AnalyticsPage";
-import SaasPage from "../pages/dashboard/SaasPage";
-import ComponentPageLayout from "../pages/component/ComponentPageLayout";
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
-import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import AlertPage from "../pages/component/AlertPage";
-import ButtonPage from "../pages/component/ButtonPage";
-import InstallationPage from "../pages/installation/InstallationPage";
-import DocumentationPage from "../pages/documentation/DocumentationPage";
+
+import DashboardIndex from "../components/pages/bookings/DashboardIndex";
+
+import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
+
+import BookIcon from "@mui/icons-material/Book";
+
+import AllCustomersPage from "../components/pages/allCustomers/AllCustomersPage";
+import BookingPageLayout from "../components/pages/bookings/BookingPageLayout";
+import EnquiryPage from "../components/pages/bookings/EnquiryPage";
+import NewEnquiryPage from "../components/pages/bookings/NewEnquiryPage";
+import CurrentBookingPage from "../components/pages/bookings/CurrentBookingPage";
+import BookingHistoryPage from "../components/pages/bookings/BookingHistoryPage";
+import WorkspacesPage from "../components/pages/workspaces/DocumentationPage";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 
 const appRoutes: RouteType[] = [
   {
     index: true,
     element: <HomePage />,
-    state: "home"
+    state: "home",
   },
   {
-    path: "/installation",
-    element: <InstallationPage />,
-    state: "installation",
+    path: "/all-customers",
+    element: <AllCustomersPage />,
+    state: "allcustomers",
     sidebarProps: {
-      displayText: "Installation",
-      icon: <FileDownloadOutlinedIcon />
-    }
+      displayText: "All Customers",
+      icon: <SupervisedUserCircleIcon />,
+    },
   },
   {
-    path: "/dashboard",
-    element: <DashboardPageLayout />,
-    state: "dashboard",
+    path: "/bookings",
+    element: <BookingPageLayout />,
+    state: "boookings",
     sidebarProps: {
-      displayText: "Dashboard",
-      icon: <DashboardOutlinedIcon />
+      displayText: "Bookings",
+      icon: <BookIcon />,
     },
     child: [
       {
         index: true,
         element: <DashboardIndex />,
-        state: "dashboard.index"
+        state: "bookings.index",
       },
       {
-        path: "/dashboard/default",
-        element: <DefaultPage />,
-        state: "dashboard.default",
+        path: "/bookings/enquiry",
+        element: <EnquiryPage />,
+        state: "bookings.enquiry",
         sidebarProps: {
-          displayText: "Default"
+          displayText: "Enquiry",
         },
       },
       {
-        path: "/dashboard/analytics",
-        element: <AnalyticsPage />,
-        state: "dashboard.analytics",
+        path: "/bookings/new-enquiry",
+        element: <NewEnquiryPage />,
+        state: "bookings.newenquiry",
         sidebarProps: {
-          displayText: "Analytic"
-        }
+          displayText: "New Enquiry",
+        },
       },
       {
-        path: "/dashboard/saas",
-        element: <SaasPage />,
-        state: "dashboard.saas",
+        path: "/bookings/current-booking",
+        element: <CurrentBookingPage />,
+        state: "bookings.currentbooking",
         sidebarProps: {
-          displayText: "Saas"
-        }
-      }
-    ]
+          displayText: "Current Booking",
+        },
+      },
+      {
+        path: "/bookings/booking-history",
+        element: <BookingHistoryPage />,
+        state: "bookings.history",
+        sidebarProps: {
+          displayText: "Booking History",
+        },
+      },
+    ],
   },
+
   {
-    path: "/component",
-    element: <ComponentPageLayout />,
-    state: "component",
+    path: "/workspaces",
+    element: <WorkspacesPage />,
+    state: "workspaces",
     sidebarProps: {
-      displayText: "Components",
-      icon: <AppsOutlinedIcon />
+      displayText: "Workspaces",
+      icon: <WorkspacePremiumIcon />,
     },
-    child: [
-      {
-        path: "/component/alert",
-        element: <AlertPage />,
-        state: "component.alert",
-        sidebarProps: {
-          displayText: "Alert"
-        },
-      },
-      {
-        path: "/component/button",
-        element: <ButtonPage />,
-        state: "component.button",
-        sidebarProps: {
-          displayText: "Button"
-        }
-      }
-    ]
   },
-  {
-    path: "/documentation",
-    element: <DocumentationPage />,
-    state: "documentation",
-    sidebarProps: {
-      displayText: "Documentation",
-      icon: <ArticleOutlinedIcon />
-    }
-  },
-  {
-    path: "/changelog",
-    element: <ChangelogPage />,
-    state: "changelog",
-    sidebarProps: {
-      displayText: "Changelog",
-      icon: <FormatListBulletedOutlinedIcon />
-    }
-  }
 ];
 
 export default appRoutes;

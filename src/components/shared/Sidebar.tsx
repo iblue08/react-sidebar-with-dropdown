@@ -18,21 +18,35 @@ const Sidebar = () => {
           boxSizing: "border-box",
           borderRight: "0px",
           backgroundColor: colorConfigs.sidebar.bg,
-          color: colorConfigs.sidebar.color
-        }
+          color: colorConfigs.sidebar.color,
+        },
       }}
     >
       <List disablePadding>
-        <Toolbar sx={{ marginBottom: "20px" }}>
+        <Toolbar sx={{ marginBottom: "" }}>
           <Stack
-            sx={{ width: "100%" }}
+            sx={{ width: "100%", alignItems: "center" }}
             direction="row"
             justifyContent="center"
           >
-            <Avatar src={assets.images.logo} />
+            {/* <Avatar src={assets.images.logo} /> */}
+            <h2 style={{ fontWeight: "800", margin: 0 }}>BENCHWORK</h2>
           </Stack>
         </Toolbar>
-        {appRoutes.map((route, index) => (
+
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          sx={{ marginY: 1 }}
+        >
+          <Avatar src={assets.images.logo} />
+          <p style={{ marginLeft: "10px", fontWeight: "bold", margin: 0 }}>
+            Admin
+          </p>
+        </Stack>
+
+        {appRoutes.map((route, index) =>
           route.sidebarProps ? (
             route.child ? (
               <SidebarItemCollapse item={route} key={index} />
@@ -40,7 +54,7 @@ const Sidebar = () => {
               <SidebarItem item={route} key={index} />
             )
           ) : null
-        ))}
+        )}
       </List>
     </Drawer>
   );
