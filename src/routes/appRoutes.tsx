@@ -9,11 +9,10 @@ import BookIcon from "@mui/icons-material/Book";
 
 import AllCustomersPage from "../components/pages/allCustomers/AllCustomersPage";
 import BookingPageLayout from "../components/pages/bookings/BookingPageLayout";
-import EnquiryPage from "../components/pages/bookings/EnquiryPage";
-import NewEnquiryPage from "../components/pages/bookings/NewEnquiryPage";
-import CurrentBookingPage from "../components/pages/bookings/CurrentBookingPage";
-import BookingHistoryPage from "../components/pages/bookings/BookingHistoryPage";
-import WorkspacesPage from "../components/pages/workspaces/DocumentationPage";
+import NewEnquiryPage from "../components/pages/bookings/newEnquiry/NewEnquiryPage";
+import CurrentBookingPage from "../components/pages/bookings/currentBooking/CurrentBookingPage";
+import BookingHistoryPage from "../components/pages/bookings/bookingHistory/BookingHistoryPage";
+import WorkspacesPage from "../components/pages/workspaces/Workspace";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 
 const appRoutes: RouteType[] = [
@@ -45,22 +44,14 @@ const appRoutes: RouteType[] = [
         element: <DashboardIndex />,
         state: "bookings.index",
       },
-      {
-        path: "/bookings/enquiry",
-        element: <EnquiryPage />,
-        state: "bookings.enquiry",
-        sidebarProps: {
-          displayText: "Enquiry",
-        },
-      },
-      {
-        path: "/bookings/new-enquiry",
-        element: <NewEnquiryPage />,
-        state: "bookings.newenquiry",
-        sidebarProps: {
-          displayText: "New Enquiry",
-        },
-      },
+      // {
+      //   path: "/bookings/new-enquiry",
+      //   element: <NewEnquiryPage />,
+      //   state: "bookings.newenquiry",
+      //   sidebarProps: {
+      //     displayText: "New Enquiry",
+      //   },
+      // },
       {
         path: "/bookings/current-booking",
         element: <CurrentBookingPage />,
@@ -85,8 +76,17 @@ const appRoutes: RouteType[] = [
     element: <WorkspacesPage />,
     state: "workspaces",
     sidebarProps: {
-      displayText: "Workspaces",
+      displayText: "All Plots",
       icon: <WorkspacePremiumIcon />,
+    },
+  },
+  {
+    path: "/bookings/booking-history",
+    element: <BookingHistoryPage />,
+    state: "bookings.history",
+    sidebarProps: {
+      displayText: "All Admins",
+      icon: <SupervisedUserCircleIcon />,
     },
   },
 ];

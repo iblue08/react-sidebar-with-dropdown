@@ -1,10 +1,10 @@
 import { Avatar, Drawer, List, Stack, Toolbar } from "@mui/material";
-import assets from "../../assets";
-import colorConfigs from "../../configs/colorConfigs";
-import sizeConfigs from "../../configs/sizeConfigs";
-import appRoutes from "../../routes/appRoutes";
-import SidebarItem from "./SidebarItem";
-import SidebarItemCollapse from "./SidebarItemCollapse";
+import assets from "../../../assets";
+import colorConfigs from "../../../configs/colorConfigs";
+import sizeConfigs from "../../../configs/sizeConfigs";
+import appRoutes from "../../../routes/appRoutes";
+import SidebarItem from "./sidebarItem/SidebarItem";
+import SidebarItemCollapse from "./sidebarItemCollapse/SidebarItemCollapse";
 
 const Sidebar = () => {
   return (
@@ -30,11 +30,11 @@ const Sidebar = () => {
             justifyContent="center"
           >
             {/* <Avatar src={assets.images.logo} /> */}
-            <h2 style={{ fontWeight: "800", margin: 0 }}>BENCHWORK</h2>
+            <h2 style={{ fontWeight: "800", margin: 0 }}>FIND MY HOUSE</h2>
           </Stack>
         </Toolbar>
 
-        <Stack
+        {/* <Stack
           direction="row"
           alignItems="center"
           justifyContent="center"
@@ -44,7 +44,7 @@ const Sidebar = () => {
           <p style={{ marginLeft: "10px", fontWeight: "bold", margin: 0 }}>
             Admin
           </p>
-        </Stack>
+        </Stack> */}
 
         {appRoutes.map((route, index) =>
           route.sidebarProps ? (

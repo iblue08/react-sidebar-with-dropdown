@@ -1,12 +1,10 @@
-import React from "react";
-import SimpleGrid from "../../shared/AgGrid";
+import { CustomerColDefs } from "../../../constants/customer/customerColDefs";
+import DataGrid from "../../shared/dataGrid/DataGrid";
 
-type Props = {};
-
-const AllCustomersPage = (props: Props) => {
+const AllCustomersPage = () => {
   return (
     <div>
-      <SimpleGrid />
+      <DataGrid colDefs={CustomerColDefs} rowData={[]} key={0}/>
     </div>
   );
 };
